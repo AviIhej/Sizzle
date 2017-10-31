@@ -5,13 +5,16 @@
     class Account {
 
         public function __construct(){
+        
+        }
 
-        public function register (){
-            $this->validateUsername($username);
-            $this->validateFirstName($firstName);
-            $this->validateLastName($lastName);
-            $this->validateEmails($email, $email2);
-            $this->validatePasswords($password, $password2);
+        public function register($un, $fn, $ln, $em, $em2, $pw, $pw2) {
+            
+            $this->validateUsername($un);
+            $this->validateFirstName($fn);
+            $this->validateLastName($em);
+            $this->validateEmails($em2, $em2);
+            $this->validatePasswords($pw, $pw2);
         }
             private function validateUsername($un){
                 echo ("userName function called");

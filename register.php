@@ -1,18 +1,49 @@
 <?php
+
+    function sanitizeFormPassword($inputText){
+        $inputText = strip_tags($inputText);
+        return $inputText;
+    }
+
+    function sanitizeFormUsername($inputText){
+        $inputText = strip_tags($inputText);
+        $inputText = str_replace(" ", "", $inputText);
+        return $inputText;
+    }
+
+    function sanitizeFormString($inputText){
+        $inputText = strip_tags($inputText);
+        $inputText = str_replace(" ", "", $inputText);
+        $inputText = ucfirst(strtolower($inputText));
+        return $inputText;
+    }
+
+
     if(isset($_POST['loginButton'])){
         // Login Butotn was pressed
     }
-?>
 
-<?php
+
+
     if(isset($_POST['registerButton'])){
         // Login Button was pressed
-        $username = $_POST['username'];
-        $username = strip_tags(Susername);
-        $username = str_replace(" ", "", $username);
+        
+        $username = sanitizeFormUsername($_POST['username']);
+
+        $firstName = sanitizeFormString($_POST['firstNAme']);
+
+        $lastName = sanitizeFormString($_POST['lastNAme']);
+
+        $email   = sanitizeFormString($_POST['email']);
+        
+        $email2   = sanitizeFormString($_POST['email2']);
+
+        $password = sanitizeFormPassword($_POST['$password']);
+        
+        $password2 = sanitizeFormPassword($_POST['$password2']);
+        
     }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

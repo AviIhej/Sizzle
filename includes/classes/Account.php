@@ -50,9 +50,19 @@
             }
         
             private function validatePasswords($pw, $pw2){
+                if($pw != $pw2){
+                    array_push($this->errorArray, "You're passwords don't match");
+                    return;
+                }
 
+                if(preg_match('/[^A-Za-z0-9]/', $pw)){
+                    array_push($this->errorArray, "You're password can only contain numbers and letters");  
+                    return;
+                }
+                if(strlen($pw) > 30 || strlen($pw) < 5){
+                    array_push($this->errorArray, "You're password can only contain numbers and letters");  
+                    return;
+                }
             }
-
-    }
-
+        }
 ?>
